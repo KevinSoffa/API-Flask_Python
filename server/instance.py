@@ -13,8 +13,10 @@ class Server():
         self.app.config['PROPAGATE_EXEPTIONS'] = True
         self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+        self
+
         def book_ns(self, ):
-            return self.api.namespace(name='Books', description='bood related operations')
+            return self.api.namespace(name='Books', description='bood related operations', path='/')
 
         def run(self, ):
             self.app.run(
@@ -22,3 +24,4 @@ class Server():
                 debug=True,
                 host='0.0.0.0'
             )
+
