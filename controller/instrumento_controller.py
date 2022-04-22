@@ -38,6 +38,14 @@ class InstrumentoController(Resource):
         return instrumento_schema.dump(instrumento_data), 200
 
 
+    def delete(self, id):
+        instrumento_data = InstrumentoModel.find_by_id(id)
+        if instrumento_data:
+            instrumento_data.delete_from_db()
+            return '', 204
+        return {"message": ITEM_NOT_FOUND}, 404
+
+
 class InstrumentoListController(Resource):
     def get(self, ):
         return instrumento_list_schema.dump(InstrumentoModel.find_all()), 200
@@ -48,7 +56,5 @@ class InstrumentoListController(Resource):
     def post(self, ):
         instrumento_json = request.get_json()
         instrumento_data = instrumento_schema.load(instrumento_json)
-
         instrumento_data.save_to_db()
-
         return instrumento_schema.dump(instrumento_data), 201
