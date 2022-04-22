@@ -1,4 +1,4 @@
-from controller.instrumento_controller import InstrumentoController
+from controller.instrumento_controller import InstrumentoController, InstrumentoListController
 from marshmallow import ValidationError
 from server.instance import server
 from flask import jsonify
@@ -16,6 +16,7 @@ def create_tables():
 
 
 api.add_resource(InstrumentoController, '/instrumentos/<int:id>')
+api.add_resource(InstrumentoListController, '/instrumentos')
 
 
 if __name__ == '__main__':
