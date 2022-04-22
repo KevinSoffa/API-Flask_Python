@@ -13,15 +13,18 @@ class Server():
         self.app.config['PROPAGATE_EXEPTIONS'] = True
         self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-        self
+        self.instrumento_ns = self.instrumento_ns()
 
-        def book_ns(self, ):
-            return self.api.namespace(name='Books', description='bood related operations', path='/')
+    def instrumento_ns(self, ):
+        return self.api.namespace(name='Books', description='bood related operations', path='/')
 
-        def run(self, ):
-            self.app.run(
-                port=500,
-                debug=True,
-                host='0.0.0.0'
+    def run(self, ):
+        self.app.run(
+            port=5000,
+            debug=True,
+            host='0.0.0.0'
             )
+
+
+server = Server()
 
