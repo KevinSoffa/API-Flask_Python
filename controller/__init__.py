@@ -1,0 +1,1 @@
+from .instrumento_controller import InstrumentoController, InstrumentoListController
